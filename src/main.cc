@@ -84,7 +84,7 @@ Handle<Value> convert_blob(const Arguments& args) {
         return except("You must provide one argument.");
 
     Local<Object> target = args[0]->ToObject();
-    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_2;
+    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_4;
     if (args.Length() >= 2) {
       mergedMiningBlockVersion = static_cast<uint64_t>(args[1]->ToNumber()->NumberValue());
     }
@@ -123,7 +123,7 @@ Handle<Value> get_block_id(const Arguments& args) {
         return except("You must provide one argument.");
 
     Local<Object> target = args[0]->ToObject();
-    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_2;
+    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_4;
     if (args.Length() >= 2) {
       mergedMiningBlockVersion = static_cast<uint64_t>(args[1]->ToNumber()->NumberValue());
     }
@@ -155,7 +155,7 @@ Handle<Value> construct_block_blob(const Arguments& args) {
     Local<Object> block_template_buf = args[0]->ToObject();
     Local<Object> nonce_buf = args[1]->ToObject();
 
-    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_2;
+    uint64_t mergedMiningBlockVersion = BLOCK_MAJOR_VERSION_4;
     if (args.Length() >= 3) {
       mergedMiningBlockVersion = static_cast<uint64_t>(args[2]->ToNumber()->NumberValue());
     }
