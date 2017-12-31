@@ -871,7 +871,7 @@ namespace cryptonote
     return check_hash(proof_of_work, current_diffic);
   }
   //---------------------------------------------------------------
-  bool check_proof_of_work_v2(const block& bl, difficulty_type current_diffic, crypto::hash& proof_of_work)
+  bool check_proof_of_work_v4(const block& bl, difficulty_type current_diffic, crypto::hash& proof_of_work)
   {
     if (BLOCK_MAJOR_VERSION_4 != bl.major_version)
       return false;
@@ -912,7 +912,7 @@ namespace cryptonote
     switch (bl.major_version)
     {
     case BLOCK_MAJOR_VERSION_1: return check_proof_of_work_v1(bl, current_diffic, proof_of_work);
-    case BLOCK_MAJOR_VERSION_4: return check_proof_of_work_v2(bl, current_diffic, proof_of_work);
+    case BLOCK_MAJOR_VERSION_4: return check_proof_of_work_v4(bl, current_diffic, proof_of_work);
     }
 
     CHECK_AND_ASSERT_MES(false, false, "unknown block major version: " << bl.major_version << "." << bl.minor_version);
